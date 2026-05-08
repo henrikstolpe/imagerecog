@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Recognition System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header role="banner">
+        <h1>Vehicle Recognition System</h1>
+        <p class="header-subtitle">PaliGemma 2 + QLoRA Classification &amp; Similarity Search</p>
+    </header>
+
+    <!-- Pipeline Visualization -->
+    <section id="pipeline-visualization" aria-label="Recognition pipeline visualization">
+        <div class="pipeline-steps">
+            <div class="pipeline-step" data-step="input">
+                <span class="step-icon" aria-hidden="true">📷</span>
+                <span class="step-label">Image Input</span>
+            </div>
+            <div class="pipeline-connector" aria-hidden="true"></div>
+            <div class="pipeline-step" data-step="preprocessing">
+                <span class="step-icon" aria-hidden="true">⚙️</span>
+                <span class="step-label">Preprocessing</span>
+            </div>
+            <div class="pipeline-connector" aria-hidden="true"></div>
+            <div class="pipeline-step" data-step="classification">
+                <span class="step-icon" aria-hidden="true">🏷️</span>
+                <span class="step-label">Classification</span>
+            </div>
+            <div class="pipeline-connector" aria-hidden="true"></div>
+            <div class="pipeline-step" data-step="similarity">
+                <span class="step-icon" aria-hidden="true">🔍</span>
+                <span class="step-label">Similarity Search</span>
+            </div>
+            <div class="pipeline-connector" aria-hidden="true"></div>
+            <div class="pipeline-step" data-step="results">
+                <span class="step-icon" aria-hidden="true">📊</span>
+                <span class="step-label">Results</span>
+            </div>
+        </div>
+        <div class="pipeline-info">
+            <span class="pipeline-model-info">Model: PaliGemma 2 with QLoRA · Embedding: 1152-d</span>
+            <span class="pipeline-timing" id="pipeline-timing" aria-live="polite"></span>
+        </div>
+    </section>
+
+    <!-- Main Content: Two-Column Layout -->
+    <main role="main">
+        <!-- Left Panel: Upload -->
+        <div class="panel-left">
+            <!-- Upload Panel -->
+            <section id="upload-panel" aria-label="Image upload">
+                <h2>Upload Image</h2>
+                <div
+                    id="upload-dropzone"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Drop zone: drag and drop a vehicle image here, or click to select a file. Accepts PNG, JPEG, and TIFF formats."
+                >
+                    <div class="dropzone-content">
+                        <span class="dropzone-icon" aria-hidden="true">⬆️</span>
+                        <p class="dropzone-text">Drag &amp; drop a vehicle image here</p>
+                        <p class="dropzone-subtext">or click to select a file</p>
+                        <p class="dropzone-formats">Accepted: PNG, JPEG, TIFF</p>
+                    </div>
+                    <input
+                        type="file"
+                        id="file-input"
+                        accept=".png,.jpg,.jpeg,.tif,.tiff"
+                        aria-label="Select a vehicle image file for recognition"
+                        hidden
+                    >
+                </div>
+                <div id="image-preview" aria-label="Uploaded image preview" role="img">
+                    <!-- Preview image rendered here by JS -->
+                </div>
+                <div id="file-info" aria-label="File information">
+                    <!-- Filename and size displayed here by JS -->
+                </div>
+                <div id="loading-indicator" class="loading-indicator" aria-live="polite" aria-label="Loading status" hidden>
+                    <span class="spinner" aria-hidden="true"></span>
+                    <span>Processing...</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Panel: Results -->
+        <div class="panel-right">
+            <!-- Classification Results -->
+            <section id="classification-results" aria-label="Classification results" aria-live="polite">
+                <h2>Classification Results</h2>
+                <div id="classification-alert" class="threshold-alert" role="alert" aria-live="assertive" hidden>
+                    ⚠️ Low confidence: top prediction is below 50% threshold
+                </div>
+                <div class="classification-bars">
+                    <!-- Top-3 classification bars rendered here by JS -->
+                </div>
+            </section>
+
+            <!-- Similarity Matches -->
+            <section id="similarity-results" aria-label="Similarity match results" aria-live="polite">
+                <h2>Similarity Matches</h2>
+                <div id="similarity-alert" class="threshold-alert" role="alert" aria-live="assertive" hidden>
+                    ⚠️ No confident match: all similarity scores are below 30%
+                </div>
+                <div class="similarity-cards">
+                    <!-- Top-5 similarity cards rendered here by JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Status Bar -->
+    <footer id="status-bar" role="status" aria-live="polite" aria-label="System status and error messages">
+        <span class="status-text">Ready</span>
+    </footer>
+
+    <!-- JavaScript Module -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: ir-signature-recognition
+Version: 0.1.0
+Summary: AI-powered infrared signature recognition for ground vehicle identification
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=2.1.0
+Requires-Dist: transformers>=4.38.0
+Requires-Dist: bitsandbytes>=0.41.0
+Requires-Dist: peft>=0.7.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: Pillow>=10.0.0
+Requires-Dist: scipy>=1.11.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: hypothesis>=6.92.0; extra == "dev"

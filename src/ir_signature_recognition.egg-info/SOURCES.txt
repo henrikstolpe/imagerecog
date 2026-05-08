@@ -1,0 +1,17 @@
+pyproject.toml
+src/ir_recognition/__init__.py
+src/ir_recognition/models.py
+src/ir_recognition/evaluation/__init__.py
+src/ir_recognition/inference/__init__.py
+src/ir_recognition/ir_generator/__init__.py
+src/ir_recognition/ir_generator/generator.py
+src/ir_recognition/ir_generator/renderer.py
+src/ir_recognition/ir_generator/thermal_profiles.py
+src/ir_recognition/signature_db/__init__.py
+src/ir_recognition/signature_db/database.py
+src/ir_recognition/training/__init__.py
+src/ir_signature_recognition.egg-info/PKG-INFO
+src/ir_signature_recognition.egg-info/SOURCES.txt
+src/ir_signature_recognition.egg-info/dependency_links.txt
+src/ir_signature_recognition.egg-info/requires.txt
+src/ir_signature_recognition.egg-info/top_level.txt
