@@ -1,0 +1,5 @@
+docker run --gpus all --rm \
+    -e HF_TOKEN=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 \
+    -v ~/.cache/huggingface:/root/.cache/huggingface \
+    ir-recognition
+
